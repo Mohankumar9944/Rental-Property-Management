@@ -1,0 +1,103 @@
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d0d; /* Deep black */
+  color: white;
+  line-height: 1.5;
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #1a1a1a; /* Slightly lighter black */
+  padding: 1rem 0;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #333333;
+  color: #00cec9;
+}
+
+/* Responsive Container for Pages */
+.page-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 1rem 2rem;
+  background-color: #1b1b1b;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Button Global Style */
+button {
+  background-color: #00b894;
+  color: black;
+  border: none;
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00cec9;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .page-container {
+    margin: 2rem 1rem;
+    padding: 1rem;
+  }
+
+  nav a {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .page-container {
+    padding: 1rem 0.8rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+    padding: 0.65rem 1rem;
+  }
+}
