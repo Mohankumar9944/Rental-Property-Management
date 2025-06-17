@@ -8,7 +8,7 @@ const SignupForm = () => {
     phone: '',
     password: '',
     confirmPassword: '',
-    role: 'Seller',
+    role: '',
   });
 
   const handleChange = (e) => {
@@ -16,16 +16,34 @@ const SignupForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: Form validation and submission logic
-    console.log(formData);
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch('http://localhost:5000/api/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      alert('Signup successful');
+      console.log(data.token);
+      // You can save token in localStorage/sessionStorage if needed
+    } else {
+      alert(data.message);
+    }
+  } catch (error) {
+    console.error('Signup error:', error);
+    alert('An error occurred during signup');
+  }
+};
+
 
   return (
     <div className="form-container">
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit} className="signup-form">
+      <form action="/sellerlogin" onSubmit={handleSubmit} className="signup-form">
 
         <div className="form-group">
           <label>Full Name</label>
@@ -99,6 +117,7 @@ const SignupForm = () => {
             onChange={handleChange}
           >
             <option value="Seller">Seller</option>
+            <option value="Buyer">Buyer</option>
           </select>
         </div>
 

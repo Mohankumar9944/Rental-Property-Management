@@ -91,8 +91,9 @@ const LoginForm = () => {
 
         <div className="form-footer">
           <Link to="/forgot-password" className="footer-link">Forgot Password?</Link>
-          <span> | </span>
-          <Link to="/signup" className="footer-link">Sign up here</Link>
+          <span> | Don't have an account?
+          </span>
+          <Link to="/signup" className="footer-link"> Sign up</Link>
         </div>
       </form>
     </div>
